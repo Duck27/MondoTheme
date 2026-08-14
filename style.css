@@ -1,0 +1,226 @@
+/*
+Theme Name: Mondo Theme
+Theme URI: https://alkir.website/
+Author: Alkir
+Author URI: https://alkir.website/
+Description: Custom lightweight WordPress theme built for portfolio representation.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+Text Domain: mondo-theme
+*/
+
+/* --- Tokens --- */
+
+:root {
+  --color-primary: #d7d7d7;
+  --color-dark: #1d1d1d;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  --font-family-base: "Montserrat", sans-serif;
+
+  --font-size-base: 16px;
+  --font-size-heading: 30px;
+  --font-size-lg: 40px;
+  --font-size-huge: 60px;
+
+  --line-height-base: 1.5;
+  --line-height-heading: 1.2;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* --- Base --- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-dark);
+  background-color: var(--color-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-heading {
+  margin: 0;
+  font-size: var(--font-size-heading);
+  line-height: var(--line-height-heading);
+  font-weight: 400;
+}
+
+.text-lg {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-heading);
+}
+
+.text-huge {
+  font-size: var(--font-size-huge);
+  line-height: var(--line-height-heading);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* --- Merge button --- */
+
+.btn-merge {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 32px;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.45s ease;
+}
+
+.btn-merge::before,
+.btn-merge::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transition:
+    width 0.45s ease,
+    border-radius 0.45s ease;
+  z-index: -1;
+}
+
+.btn-merge::before {
+  left: 0;
+}
+
+.btn-merge::after {
+  right: 0;
+}
+
+.btn-merge:hover::before,
+.btn-merge:focus-visible::before {
+  width: 50%;
+  border-radius: 4px 0 0 4px;
+}
+
+.btn-merge:hover::after,
+.btn-merge:focus-visible::after {
+  width: 50%;
+  border-radius: 0 4px 4px 0;
+}
+
+.btn-merge--on-dark {
+  color: var(--color-white);
+}
+
+.btn-merge--on-dark::before,
+.btn-merge--on-dark::after {
+  background-color: var(--color-white);
+}
+
+.btn-merge--on-dark:hover,
+.btn-merge--on-dark:focus-visible {
+  color: var(--color-black);
+}
+
+.btn-merge--on-light {
+  color: var(--color-black);
+}
+
+.btn-merge--on-light::before,
+.btn-merge--on-light::after {
+  background-color: var(--color-black);
+}
+
+.btn-merge--on-light:hover::before,
+.btn-merge--on-light:focus-visible::before,
+.btn-merge--on-light:hover::after,
+.btn-merge--on-light:focus-visible::after {
+  background-color: var(--color-white);
+}
+
+.btn-merge--on-light:hover,
+.btn-merge--on-light:focus-visible {
+  color: var(--color-black);
+}
+
+.btn-merge--sm {
+  min-height: 36px;
+  padding: 8px 18px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-merge,
+  .btn-merge::before,
+  .btn-merge::after {
+    transition: none;
+  }
+}
+
+/* --- Main --- */
+
+main {
+  flex: 1;
+}
